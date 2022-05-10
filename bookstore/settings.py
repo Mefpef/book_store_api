@@ -76,11 +76,16 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# postgres://idqzdjhjadxrag:903875aff52356d245edbe85f5a4d80a8d7a1d7dfbcb61f1a2bff26e1c2dbfd8@ec2-54-80-122-11.compute-1.amazonaws.com:5432/d4tqi0vn1t1jq9
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': "django.db.backends.postgresql",
+        'NAME': os.environ.get("NAME"),
+        'HOST': os.environ.get("HOST"),
+        'PORT': os.environ.get("PORT"),
+        'USER': os.environ.get("USER"),
+        'PASSWORD': os.environ.get("PASSWORD"),
     }
 }
 
